@@ -53,7 +53,7 @@ async function buildList(data){
             const detail = await fetch(`https://pokeapi.co/api/v2/pokemon/${data.results[index].name}`).then( data => data.json() )
             
             if(detail.sprites.other['official-artwork'].front_default !== null){
-                listPokemon.innerHTML += `
+                pokemons += `
                 <div onclick="detailPokemon(${detail.id})" class="pokemon-cards d-flex flex-column justify-content-center align-items-center normal-color">
                     <div> <h5>${data.results[index].name[0].toUpperCase() + data.results[index].name.substring(1)}</h5></div> 
 
@@ -67,7 +67,7 @@ async function buildList(data){
         }
     }else{
         if(data.sprites.other['official-artwork'].front_default !== null){
-            listPokemon.innerHTML += `
+            pokemons += `
             <div onclick="detailPokemon(${data.id})" class="pokemon-cards d-flex flex-column justify-content-center align-items-center normal-color">
                 <div> <h5>${data.name[0].toUpperCase() + data.name.substring(1)}</h5></div> 
 
@@ -88,7 +88,7 @@ async function buildList(data){
         btnBackPage.classList.remove('d-none')
         btnNextPage.classList.remove('d-none')
     }
-    
+    listPokemon.innerHTML = pokemons
     load()
 }
 
@@ -180,6 +180,15 @@ async function detailPokemon(id){
         document.querySelector('#type2').classList = 'd-none'
     }
     
+    document.querySelector('#height').innerHTML = `${detail.height / 10}m`
+    document.querySelector('#weight').innerHTML = `${detail.weight / 10}kg`
+    
+    document.querySelector('#hp').value = detail.stats[0].base_stat
+    document.querySelector('#attack').value = detail.stats[1].base_stat
+    document.querySelector('#defense').value = detail.stats[2].base_stat
+    document.querySelector('#sp-attack').value = detail.stats[3].base_stat
+    document.querySelector('#sp-defense').value = detail.stats[4].base_stat
+    document.querySelector('#speed').value = detail.stats[5].base_stat
 
     document.querySelector('.modal-body').children[0].classList = ''
     document.querySelector('.modal-body').children[0].classList = `container d-flex justify-content-center ${detail.types[0].type.name}`

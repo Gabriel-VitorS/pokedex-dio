@@ -15,7 +15,9 @@
     <header class="container mb-5 mt-3">
         <section class="row">
             <div class="col-lg-6 d-flex">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" height="50" alt="">
+                <a href="">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" height="50" alt="">
+                </a>
             </div>
             <div class="col-lg-6 d-flex justify-content-around flex-wrap-reverse">
                 <div>
@@ -89,6 +91,36 @@
                     <h5 id="type2" class="m-2"></h5>
                 </div>
 
+                <div class="text-center mt-2">
+                    <div>
+                        <span class="m-2 text-stats">Height:</span>
+                        <span class="m-2 text-stats">Weight:</span>
+                    </div>
+                    <div>
+                        <span id="height" class="m-2"></span>
+                        <span id="weight" class="m-2"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-4 mb-2 p-4">
+                    <span class="text-stats col-sm-3 text-center ">Hp: </span>
+                    <progress id="hp" class="col-sm-8 mt-1 mb-2" max="100" value="30"> </progress>
+
+                    <span class="text-stats col-sm-3 text-center ">Attack: </span>
+                    <progress id="attack" class="col-sm-8 mt-1 mb-2" max="100" value="30"> </progress>
+
+                    <span class="text-stats col-sm-3 text-center ">Defense: </span>
+                    <progress id="defense" class="col-sm-8 mt-1 mb-2" max="100" value="30"> </progress>
+
+                    <span class="text-stats col-sm-3 text-center ">Sp. Attack: </span>
+                    <progress id="sp-attack" class="col-sm-8 mt-1 mb-2" max="100" value="30"> </progress>
+
+                    <span class="text-stats col-sm-3 text-center ">Sp. Defense: </span>
+                    <progress id="sp-defense" class="col-sm-8 mt-1 mb-2" max="100" value="30"> </progress>
+
+                    <span class="text-stats col-sm-3 text-center">Speed: </span>
+                    <progress id="speed" class="col-sm-8 mt-1 mb-2" max="100" value="30"> </progress>
+                </div>
               </div>
 
             </div>

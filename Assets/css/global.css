@@ -67,6 +67,11 @@ h5{
 #loader > img{
     animation: rotate-center 1s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite both;
 }
+
+.text-stats{
+    font-size: 0.9rem; color: rgb(110, 109, 109)
+}
+
  @-webkit-keyframes rotate-center {
     0% {
       -webkit-transform: rotate(0);
