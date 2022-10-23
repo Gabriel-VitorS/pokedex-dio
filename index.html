@@ -70,24 +70,36 @@
         </section>
     </main>
 
-    <div class="modal fade" id="modal-types" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5">Selecione o tipo do Pokemon</h1>
+            <div id="div-title" class="modal-header border-0">
+              <h1 class="modal-title fs-5" id="title"></h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-              
+            <div class="modal-body m-0 p-0">
+
+              <div class="container d-flex justify-content-center">
+                <img id="img-detail" height="200" src="" alt="">
+              </div>
+
+              <div class="container">
+                <div class="d-flex justify-content-center">
+                    <h5 id="type1" class="m-2"></h5>
+                    <h5 id="type2" class="m-2"></h5>
+                </div>
+
+              </div>
+
             </div>
           </div>
         </div>
     </div>
 
-    <div class="toast-container position-fixed  bottom-0 end-0 p-3">
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="d-flex">
-              <div class="toast-body">
+              <div class="toast-body" >
                 Nenhum resultado encontrado
               </div>
               <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>

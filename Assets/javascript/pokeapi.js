@@ -33,6 +33,16 @@ async function getListPokemon(link){
     
 }
 
+btnBackPage.addEventListener('click', ()=>{
+    getListPokemon(backPage)
+})
+
+btnNextPage.addEventListener('click', ()=>{
+    getListPokemon(nextPage)
+})
+
+getListPokemon(url)
+
 async function buildList(data){
     let pokemons = ''
     listPokemon.innerHTML = ''
@@ -43,8 +53,8 @@ async function buildList(data){
             const detail = await fetch(`https://pokeapi.co/api/v2/pokemon/${data.results[index].name}`).then( data => data.json() )
             
             if(detail.sprites.other['official-artwork'].front_default !== null){
-                pokemons += `
-                <div class="pokemon-cards d-flex flex-column justify-content-center align-items-center normal-color">
+                listPokemon.innerHTML += `
+                <div onclick="detailPokemon(${detail.id})" class="pokemon-cards d-flex flex-column justify-content-center align-items-center normal-color">
                     <div> <h5>${data.results[index].name[0].toUpperCase() + data.results[index].name.substring(1)}</h5></div> 
 
                     <div>
@@ -57,8 +67,8 @@ async function buildList(data){
         }
     }else{
         if(data.sprites.other['official-artwork'].front_default !== null){
-            pokemons += `
-            <div class="pokemon-cards d-flex flex-column justify-content-center align-items-center normal-color">
+            listPokemon.innerHTML += `
+            <div onclick="detailPokemon(${data.id})" class="pokemon-cards d-flex flex-column justify-content-center align-items-center normal-color">
                 <div> <h5>${data.name[0].toUpperCase() + data.name.substring(1)}</h5></div> 
 
                 <div>
@@ -79,17 +89,10 @@ async function buildList(data){
         btnNextPage.classList.remove('d-none')
     }
     
-    listPokemon.innerHTML = pokemons
     load()
 }
 
-btnBackPage.addEventListener('click', ()=>{
-    getListPokemon(backPage)
-})
 
-btnNextPage.addEventListener('click', ()=>{
-    getListPokemon(nextPage)
-})
 
 selectType.addEventListener('change', async function (e){
     removeSearch.classList.add('d-none')
@@ -136,11 +139,11 @@ async function searchPokemon(pokemon){
     
 }
 
-btnSearch.addEventListener('click', ()=>{ searchPokemon(inputSearch.value.toLowerCase()) })
+btnSearch.addEventListener('click', ()=>{ searchPokemon(inputSearch.value.replaceAll(' ', '').toLowerCase()) })
 
 inputSearch.addEventListener('keydown', (e)=>{ 
     if(e.keyCode === 13)
-        searchPokemon(inputSearch.value.toLowerCase())
+        searchPokemon(inputSearch.value.replaceAll(' ', '').toLowerCase())
 })
 
 removeSearch.addEventListener('click', ()=>{ getListPokemon(url); inputSearch.value = ''})
@@ -153,4 +156,34 @@ function load(display){
         loader.classList.add('d-none')
 }
 
-getListPokemon(url)
+
+async function detailPokemon(id){
+    const modal = new bootstrap.Modal('#modal-detail')
+    modal.show()
+    const detail = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`).then( data => data.json() )
+
+    console.log()
+
+    document.querySelector('#title').innerHTML = `${detail.name[0].toUpperCase() + detail.name.substring(1)}`
+    document.querySelector('#div-title').classList = ''
+    document.querySelector('#div-title').classList = `modal-header border-0 ${detail.types[0].type.name}`
+
+    document.querySelector('#type1').classList = ''
+    document.querySelector('#type1').classList = `m-2 ${detail.types[0].type.name}`
+    document.querySelector('#type1').innerHTML = `${detail.types[0].type.name[0].toUpperCase() + detail.types[0].type.name.substring(1)}`
+
+    if(detail.types.length > 1) {
+        document.querySelector('#type2').classList = ''
+        document.querySelector('#type2').classList = `m-2 ${detail.types[1].type.name}`
+        document.querySelector('#type2').innerHTML = `${detail.types[1].type.name[0].toUpperCase() + detail.types[1].type.name.substring(1)}`    
+    }else{
+        document.querySelector('#type2').classList = 'd-none'
+    }
+    
+
+    document.querySelector('.modal-body').children[0].classList = ''
+    document.querySelector('.modal-body').children[0].classList = `container d-flex justify-content-center ${detail.types[0].type.name}`
+    document.querySelector('#img-detail').src = detail.sprites.other['official-artwork'].front_default
+
+    
+}

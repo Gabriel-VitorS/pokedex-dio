@@ -3,73 +3,127 @@
 .normal{
     background-color: rgba(141, 141, 141, 0.2);
 }
+h5.normal{
+    color: #909090;
+}
 
 .fighting {
     background-color: rgba(196, 77, 97, 0.2);
+}
+h5.fighting{
+    color: #C44D61;
 }
 
 .flying {
     background-color: rgba(158, 180, 227, 0.2);
 }
+h5.flying{
+    color: #758CBD;
+}
 
 .poison{
     background-color: rgba(172, 106, 202, 0.2)
+}
+h5.poison{
+    color: #AC6ACA;
 }
 
 .ground{
     background-color: rgba(203, 119, 74, 0.2);
 }
+h5.ground{
+    color: #CE8056;
+}
 
 .rock{
     background-color: rgba(134, 203, 190, 0.2);
+}
+h5.rock{
+    color: #84BEB3;
 }
 
 .bug{
     background-color: rgba(131, 158, 56, 0.2);
 }
+h5.bug{
+    color: #9BBA48;
+}
 
 .ghost{
     background-color: rgba(97, 110, 183, 0.2);
+}
+h5.ghost{
+    color: #616EB7;
 }
 
 .steel{
     background-color: rgba(101, 148, 161, 0.2);
 }
+h5.steel{
+    color: #6594A1;
+}
 
 .fire{
     background-color: #FFEBCA;
+}
+h5.fire{
+    color: #E96303;
 }
 
 .water{
     background-color: #DFECF5;
 }
+h5.water{
+    color: #4F77BE;
+}
 
 .grass{
     background-color: #D6EBDC;
+}
+h5.grass{
+    color:  #73B861;
 }
 
 .electric{
     background-color: rgba(207, 190, 93, 0.2)
 }
+h5.electric{
+    color: #D4BC34;
+}
 
 .psychic{
     background-color: rgba(235, 140, 133, 0.2);
+}
+h5.psychic{
+    color: #EB8B85;
 }
 
 .ice{
     background-color: rgba(124, 197, 182, 0.2);
 }
+h5.ice{
+    color: #71BAAC;
+}
 
 .dragon{
     background-color: rgba(70, 105, 153, 0.2)
+}
+h5.dragon{
+    color: #2C6AC1;
 }
 
 .dark{
     background-color: rgba(61, 60, 63, 0.2);
 }
+h5.dark{
+    color: #595761;
+}
 
 .fairy {
     background-color: rgba(221, 138, 220, 0.2);
+}
+h5.fairy{
+    color: #E296E1;
 }
 
 .btnGrass:hover{
